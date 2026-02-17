@@ -7,6 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Ink(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -32,10 +33,11 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                AppBar(),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 24),
-                  child: Image.asset("assets/main_image.png"),
+                  child: Image.asset(
+                    "assets/main_image.png",
+                  ), //repare que aimagem está dentro do Padding
                 ),
                 PrimaryButton(
                   label: "New Game",
