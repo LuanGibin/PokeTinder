@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poke_tinder/widgets/context_button.dart';
 
 void main() {
   runApp(PokeTinder());
@@ -11,11 +12,7 @@ class PokeTinder extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "PokéTinder",
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        useMaterial3: true,
-        colorSchemeSeed: Color(0xFFE9460C),
-      ),
+      theme: ThemeData(brightness: Brightness.light, useMaterial3: true),
       home: HomePage(),
     );
   }
@@ -26,6 +23,17 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("PokéTinder")));
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          AppBar(),
+          Image.asset("assets/main_image.png"),
+          ContextButton(
+            label: "New Game",
+            onTap: () => print("print: botão funcionando"),
+          ),
+        ],
+      ),
+    );
   }
 }
