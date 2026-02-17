@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+class EditAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  const EditAppBarWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      shadowColor: Colors.black,
+      elevation: 10,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
+      ),
+    );
+  }
+
+  //Abaixo é um getter criado para definir o tamanho correto do AppBar. No flutter nós que temos que implementar manualmente o tamanha da appBar
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
+  //Size.fromHeight(kToolbarHeight) que é o tamanho padrão da appbar no flutter que é de 56px.Coloquei +20 para ir para 76px, mas como a toolbarHeight é de 72px, o resultado final é de 72px mesmo.
+}
