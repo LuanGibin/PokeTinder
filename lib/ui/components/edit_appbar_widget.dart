@@ -12,12 +12,11 @@ class EditAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
       ),
-      title: Center(
-        child: const Image(
-          image: AssetImage("assets/poketinder_logo.png"),
-          height: 65,
-          fit: BoxFit.cover,
-        ),
+      centerTitle:
+          true, //tirei o title de um widget Center e usei a propriedade centerTitle do AppBar para centralizar o título, que é a logo do app. Parece que assim funciona e com o Widget Center não
+      title: const Image(
+        image: AssetImage("assets/poketinder_logo.png"),
+        height: 65,
       ),
     );
   }

@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/poketinder_logo.png
     - assets/main_image.png
+    - assets/shellder-pokemon.png
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
