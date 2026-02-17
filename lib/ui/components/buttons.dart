@@ -31,14 +31,20 @@ class PrimaryButton extends StatelessWidget {
             ),
           ],
         ),
-        child: Text(
-          label,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );
