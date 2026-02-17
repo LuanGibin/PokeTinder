@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poke_tinder/ui/components/buttons.dart';
 import 'package:poke_tinder/ui/components/edit_appbar_widget.dart';
+import 'package:poke_tinder/ui/screens/select_mode_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -38,7 +39,12 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     PrimaryButton(
                       label: "New Game",
-                      onTap: () => print("print: botão funcionando"),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectModePage(),
+                        ),
+                      ),
                     ),
                     PrimaryButton(
                       label: "Settings",
