@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
-  final VoidCallback onTap;
+  final Function onTap;
 
   //construtor passa o label (texto do botão) e a função onTap (ação ao clicar).
   const PrimaryButton({super.key, required this.label, required this.onTap});
@@ -10,7 +10,9 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: () {
+        onTap();
+      },
       child: Ink(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
         decoration: BoxDecoration(
