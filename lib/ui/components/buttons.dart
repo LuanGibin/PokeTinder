@@ -15,11 +15,17 @@ class PrimaryButton extends StatelessWidget {
       },
       child: Ink(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
+        width: MediaQuery.of(context).size.width * 0.6,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            begin: Alignment(0.00, 0.50),
-            end: Alignment(1.00, 0.50),
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
             colors: [Color(0xFFCC201F), Color(0xFFE52D27), Color(0xFFFF6A00)],
+            stops: [
+              0.1, // ...e já começa a virar vermelho aos 10% da linha do gradiente
+              0.4, // O vermelho escuro domina até os 40%
+              1.0, // O restante da tela é preenchido pela transição para o laranja
+            ],
           ),
           borderRadius: BorderRadius.circular(32),
           boxShadow: const [
