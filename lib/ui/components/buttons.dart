@@ -13,16 +13,14 @@ class PrimaryButton extends StatelessWidget {
       onTap: onTap,
       child: Ink(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
-        decoration: ShapeDecoration(
+        decoration: BoxDecoration(
           gradient: const LinearGradient(
             begin: Alignment(0.00, 0.50),
             end: Alignment(1.00, 0.50),
             colors: [Color(0xFFCC201F), Color(0xFFE52D27), Color(0xFFFF6A00)],
           ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
-          ),
-          shadows: const [
+          borderRadius: BorderRadius.circular(32),
+          boxShadow: const [
             BoxShadow(
               color: Color(0x7F000000),
               blurRadius: 10,
