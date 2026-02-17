@@ -28,18 +28,23 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 26),
           child: Center(
             child: Column(
-              spacing: 32,
+              spacing: 40,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 24),
-                  child: Image.asset(
-                    "assets/main_image.png",
-                  ), //repare que aimagem está dentro do Padding
-                ),
-                PrimaryButton(
-                  label: "New Game",
-                  onTap: () => print("print: botão funcionando"),
+                Image.asset("assets/main_image.png"),
+
+                Column(
+                  spacing: 20,
+                  children: <Widget>[
+                    PrimaryButton(
+                      label: "New Game",
+                      onTap: () => print("print: botão funcionando"),
+                    ),
+                    PrimaryButton(
+                      label: "Settings",
+                      onTap: () => print("print: botão funcionando"),
+                    ),
+                  ],
                 ),
               ],
             ),

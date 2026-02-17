@@ -12,6 +12,13 @@ class EditAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
       ),
+      title: Center(
+        child: const Image(
+          image: AssetImage("assets/poketinder_logo.png"),
+          height: 65,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 
