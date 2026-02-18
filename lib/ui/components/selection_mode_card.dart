@@ -1,40 +1,31 @@
 import 'package:flutter/material.dart';
 
 class SelectionModeCard extends StatelessWidget {
-  const SelectionModeCard({super.key});
+  final String title;
+  final String description;
+
+  const SelectionModeCard({
+    super.key,
+    required this.title,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // LADO ESQUERDO: Dividido em 2 linhas
-        Expanded(
-          child: Column(
-            children: [
-              Expanded(
-                child: Container(
-                  color: Colors.blue[100],
-                  child: Center(child: Text("Linha 1")),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  color: Colors.blue[300],
-                  child: Center(child: Text("Linha 2")),
-                ),
-              ),
-            ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 10,
+            children: <Widget>[Text(title), Text(description)],
           ),
-        ),
-
-        // LADO DIREITO: Imagem única
-        Expanded(
-          child: Image.network(
-            'https://via.placeholder.com/150',
-            fit: BoxFit.cover, // Faz a imagem preencher todo o espaço
-          ),
-        ),
-      ],
+          Image.asset('assets/shellder-pokemon.png', height: 100, width: 100),
+        ],
+      ),
     );
   }
 }

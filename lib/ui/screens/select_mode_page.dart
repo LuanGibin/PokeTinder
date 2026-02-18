@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poke_tinder/ui/components/buttons.dart';
 import 'package:poke_tinder/ui/components/edit_appbar_widget.dart';
+import 'package:poke_tinder/ui/screens/select_mode_options_page.dart';
 
 class SelectModePage extends StatelessWidget {
   const SelectModePage({super.key});
@@ -42,7 +43,12 @@ class SelectModePage extends StatelessWidget {
                   children: <Widget>[
                     PrimaryButton(
                       label: "Tinder",
-                      onTap: () => print("print: botão Tinder funcionando"),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SelectModeOptionsPage(),
+                        ),
+                      ),
                     ),
                     PrimaryButton(
                       label: "Draft",
