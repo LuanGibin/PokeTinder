@@ -10,22 +10,25 @@ class SelectModeOptionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: EditAppBarWidget(),
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverList.builder(
-            itemBuilder: (context, index) =>
-                SelectionModeCard(title: "title", description: "description"),
-            itemCount: 10,
-          ),
-          SliverToBoxAdapter(
-            child: Center(
-              child: PrimaryButton(
-                label: "Next",
-                onTap: () => print("print: botão funcionando"),
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 10.0),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverList.builder(
+              itemBuilder: (context, index) =>
+                  SelectionModeCard(title: "title", description: "description"),
+              itemCount: 10,
+            ),
+            SliverToBoxAdapter(
+              child: Center(
+                child: PrimaryButton(
+                  label: "Next",
+                  onTap: () => print("print: botão funcionando"),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
