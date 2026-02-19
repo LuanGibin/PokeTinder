@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:poke_tinder/models/item_card_options_model.dart';
 import 'package:poke_tinder/ui/components/buttons.dart';
 import 'package:poke_tinder/ui/components/edit_appbar_widget.dart';
 import 'package:poke_tinder/ui/components/selection_mode_card.dart';
 
 class SelectModeOptionsPage extends StatelessWidget {
-  const SelectModeOptionsPage({super.key});
+  final List<ItemCardOptionsModel> listCards;
+
+  const SelectModeOptionsPage({super.key, required this.listCards});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +19,8 @@ class SelectModeOptionsPage extends StatelessWidget {
           slivers: <Widget>[
             SliverList.builder(
               itemBuilder: (context, index) =>
-                  SelectionModeCard(title: "title", description: "description"),
-              itemCount: 10,
+                  SelectionModeCard(itemCardOptionsModel: listCards[index]),
+              itemCount: listCards.length,
             ),
             SliverToBoxAdapter(
               child: Center(
@@ -25,6 +28,12 @@ class SelectModeOptionsPage extends StatelessWidget {
                   label: "Next",
                   onTap: () => print("print: botão funcionando"),
                 ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: ElevatedButton(
+                onPressed: () => print("funciona"),
+                child: Text("Botão que talvez devo usar"),
               ),
             ),
           ],

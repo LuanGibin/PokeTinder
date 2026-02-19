@@ -9,5 +9,23 @@ class ItemCardOptionsModelCollections {
       imagePath: "assets/bulbassaur_card.png",
       backgroundColor: Color(0xFF8BD46E),
     ),
+    ItemCardOptionsModel(
+      title: "Gens",
+      description: "Clique aqui para definir os Gens",
+      imagePath: "assets/ponyta_card.png",
+      backgroundColor: Color(0xFFFF6043),
+    ),
+    ItemCardOptionsModel(
+      title: "Only Pokemons",
+      description: "Clique aqui para definir os Only Pokemons",
+      imagePath: "assets/marill_card.png",
+      backgroundColor: Color(0xFF51A8FF),
+    ),
+    ItemCardOptionsModel(
+      title: "Mechanics",
+      description: "Clique aqui para definir os Mechanics",
+      imagePath: "assets/mareep_card.png",
+      backgroundColor: Color(0xFFFFD451),
+    ),
   ];
 }

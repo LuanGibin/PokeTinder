@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:poke_tinder/ui/components/buttons.dart';
 import 'package:poke_tinder/ui/components/edit_appbar_widget.dart';
 import 'package:poke_tinder/ui/screens/select_mode_options_page.dart';
+import 'package:poke_tinder/data/collections/item_card_options_model_collections.dart';
 
 class SelectModePage extends StatelessWidget {
   const SelectModePage({super.key});
@@ -46,7 +47,10 @@ class SelectModePage extends StatelessWidget {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SelectModeOptionsPage(),
+                          builder: (context) => SelectModeOptionsPage(
+                            listCards: ItemCardOptionsModelCollections
+                                .optionsToTinderMode,
+                          ),
                         ),
                       ),
                     ),
