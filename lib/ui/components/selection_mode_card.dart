@@ -1,30 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:poke_tinder/models/item_card_options_model.dart';
 
 class SelectionModeCard extends StatelessWidget {
-  final String title;
-  final String description;
+  final ItemCardOptionsModel itemCardOptionsModel;
 
-  const SelectionModeCard({
-    super.key,
-    required this.title,
-    required this.description,
-  });
+  const SelectionModeCard({super.key, required this.itemCardOptionsModel});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 10,
-            children: <Widget>[Text(title), Text(description)],
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.centerRight,
+            end: Alignment.centerLeft,
+            colors: [itemCardOptionsModel.backgroundColor, Colors.white],
           ),
-          Image.asset('assets/shellder-pokemon.png', height: 100, width: 100),
-        ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 10,
+              children: <Widget>[
+                Text(itemCardOptionsModel.title),
+                Text(itemCardOptionsModel.description),
+              ],
+            ),
+            Image.asset(
+              itemCardOptionsModel.imagePath,
+              height: 100,
+              width: 100,
+            ),
+          ],
+        ),
       ),
     );
   }
