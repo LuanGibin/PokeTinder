@@ -10,34 +10,42 @@ class SelectionModeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
-            colors: [itemCardOptionsModel.backgroundColor, Colors.white],
-          ),
+      child: InkWell(
+        onTap: () => showModalBottomSheet(
+          context: context,
+          builder: (context) => buildSheet(),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 10,
-              children: <Widget>[
-                Text(itemCardOptionsModel.title),
-                Text(itemCardOptionsModel.description),
-              ],
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
+              colors: [itemCardOptionsModel.backgroundColor, Colors.white],
             ),
-            Image.asset(
-              itemCardOptionsModel.imagePath,
-              height: 100,
-              width: 100,
-            ),
-          ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 10,
+                children: <Widget>[
+                  Text(itemCardOptionsModel.title),
+                  Text(itemCardOptionsModel.description),
+                ],
+              ),
+              Image.asset(
+                itemCardOptionsModel.imagePath,
+                height: 100,
+                width: 100,
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
+
+  Widget buildSheet() => Container();
 }
