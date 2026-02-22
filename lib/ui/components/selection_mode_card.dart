@@ -10,34 +10,63 @@ class SelectionModeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
-            colors: [itemCardOptionsModel.backgroundColor, Colors.white],
+      child: GestureDetector(
+        onTap: () => showModalBottomSheet(
+          context: context,
+          builder: (context) => buildSheet(),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
+              colors: [itemCardOptionsModel.backgroundColor, Colors.white],
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 10,
+                children: <Widget>[
+                  Text(itemCardOptionsModel.title),
+                  Text(itemCardOptionsModel.description),
+                ],
+              ),
+              Image.asset(
+                itemCardOptionsModel.imagePath,
+                height: 100,
+                width: 100,
+              ),
+            ],
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 10,
-              children: <Widget>[
-                Text(itemCardOptionsModel.title),
-                Text(itemCardOptionsModel.description),
-              ],
-            ),
-            Image.asset(
-              itemCardOptionsModel.imagePath,
-              height: 100,
-              width: 100,
-            ),
-          ],
-        ),
       ),
+    );
+  }
+
+  Widget buildSheet() {
+    // Copia inicial do mapa vindo do modelo
+    final mapList = itemCardOptionsModel.listMapOptions;
+
+    return StatefulBuilder(
+      builder: (context, setModalState) {
+        return ListView(
+          padding: const EdgeInsets.all(16),
+          children: mapList.entries.map((entry) {
+            return SwitchListTile(
+              title: Text(entry.key),
+              value: entry.value,
+              onChanged: (value) {
+                setModalState(() => mapList[entry.key] = value);
+                debugPrint('Novo valor de ${entry.key}: $value');
+              },
+            );
+          }).toList(),
+        );
+      },
     );
   }
 }
