@@ -10,12 +10,12 @@ class SelectionModeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: InkWell(
+      child: GestureDetector(
         onTap: () => showModalBottomSheet(
           context: context,
           builder: (context) => buildSheet(),
         ),
-        child: Ink(
+        child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.centerRight,
@@ -47,5 +47,26 @@ class SelectionModeCard extends StatelessWidget {
     );
   }
 
-  Widget buildSheet() => Container();
+  Widget buildSheet() {
+    // Copia inicial do mapa vindo do modelo
+    final mapList = itemCardOptionsModel.listMapOptions;
+
+    return StatefulBuilder(
+      builder: (context, setModalState) {
+        return ListView(
+          padding: const EdgeInsets.all(16),
+          children: mapList.entries.map((entry) {
+            return SwitchListTile(
+              title: Text(entry.key),
+              value: entry.value,
+              onChanged: (value) {
+                setModalState(() => mapList[entry.key] = value);
+                debugPrint('Novo valor de ${entry.key}: $value');
+              },
+            );
+          }).toList(),
+        );
+      },
+    );
+  }
 }
