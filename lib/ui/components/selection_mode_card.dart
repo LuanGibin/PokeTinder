@@ -48,8 +48,9 @@ class SelectionModeCard extends StatelessWidget {
   }
 
   Widget buildSheet() {
-    // Copia inicial do mapa vindo do modelo
-    final mapList = itemCardOptionsModel.listMapOptions;
+    final Map<String, bool> mapList = Map.from(
+      itemCardOptionsModel.listMapOptions,
+    ); //Precisa criar a váriavel mapList dessa forma para não alterar o valor original do itemCardOptionsModel.listMapOptions. Essa é então uma cópia
 
     return StatefulBuilder(
       builder: (context, setModalState) {
